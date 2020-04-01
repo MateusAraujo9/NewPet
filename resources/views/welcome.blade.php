@@ -3,5 +3,5 @@
 @section('title', 'Home')
     
 @section('content')
-    <h3>Você está logado</h3>
+<h3>Olá {{$nome}}</h3>
 @endsection
