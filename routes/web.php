@@ -1,5 +1,8 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +16,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index')->middleware('auth');
+
+Route::get('/login', 'Auth\LoginController@index')->name('login');
+Route::post('/login', 'Auth\LoginController@authenticate');
+
+Route::get('/register', 'Auth\RegisterController@index')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
